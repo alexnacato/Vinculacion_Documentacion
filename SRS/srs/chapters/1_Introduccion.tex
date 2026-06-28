@@ -1,0 +1,207 @@
+% ============================================================
+% CAPÍTULO 1: INTRODUCCIÓN
+% ============================================================
+\section{Introducción}
+\label{sec:introduccion}
+
+El presente documento constituye la Especificación de Requisitos de Software (ERS) del sistema \textbf{AnxioTest}, una plataforma web diseñada para la evaluación del bienestar emocional. Este desarrollo se enmarca en el \textbf{Proyecto de Vinculación con la Colectividad} de la Universidad de las Fuerzas Armadas ESPE, específicamente en el programa de atención a la \textbf{Misión Social Tumiñahi}, que atiende a adultos mayores y comunidades vulnerables.
+
+La ERS describe de manera estructurada y comprensible los requisitos funcionales y no funcionales del sistema, su contexto operativo, las interfaces, las restricciones técnicas y organizativas, así como los criterios de aceptación que permitirán verificar que el producto cumple con lo esperado.
+
+AnxioTest nace de la necesidad de brindar a los beneficiarios de la misión social una herramienta accesible y confiable que les permita conocer, de forma orientativa, su estado emocional mediante cuestionarios validados científicamente (PHQ-9 y BAI). La plataforma está pensada para ser utilizada por personas con poca familiaridad tecnológica, por lo que se prioriza la simplicidad, la accesibilidad visual y auditiva, y la privacidad de los datos.
+
+\subsection{Propósito}
+\label{sec:proposito}
+
+El propósito de este documento es definir de forma clara y precisa los requisitos del sistema AnxioTest, de modo que el equipo de desarrollo, los evaluadores y los patrocinadores tengan una base común para comprender, validar y verificar el comportamiento esperado del producto.
+
+La ERS está dirigida a los siguientes grupos de interés:
+
+\begin{itemize}
+  \item \textbf{Equipo de desarrollo:} Para guiar la implementación de la interfaz, la lógica de los cuestionarios y el cálculo de resultados.
+  \item \textbf{Equipo de pruebas:} Como base para la definición de casos de prueba y criterios de aceptación.
+  \item \textbf{Representantes de la Misión Social Tumiñahi y de la ESPE:} Para validar que el sistema responde a las necesidades reales de la comunidad.
+  \item \textbf{Usuarios finales:} Para que conozcan las capacidades y limitaciones de la herramienta.
+\end{itemize}
+
+La ERS se ha elaborado siguiendo las directrices del estándar \textbf{IEEE 830}, que garantiza la calidad, trazabilidad y verificabilidad de los requisitos.
+
+\subsection{Ámbito del sistema}
+\label{sec:ambito}
+
+AnxioTest es una aplicación web estática que permite a los usuarios realizar autoevaluaciones breves de bienestar emocional mediante los cuestionarios estandarizados \textbf{PHQ-9} (depresión) y \textbf{BAI} (ansiedad). El sistema se ejecuta completamente en el navegador, sin necesidad de conexión a internet permanente ni de almacenamiento en servidores, lo que garantiza la privacidad de los datos.
+
+Las funciones principales que ofrece el sistema son:
+
+\begin{itemize}
+  \item Mostrar una página de bienvenida con información clara sobre la herramienta y su propósito.
+  \item Permitir seleccionar entre dos evaluaciones: PHQ-9 y BAI.
+  \item Ejecutar el cuestionario seleccionado con preguntas secuenciales y opciones de respuesta claras.
+  \item Calcular automáticamente el puntaje total y clasificar el resultado según criterios clínicos establecidos.
+  \item Presentar resultados interpretativos con mensajes adaptados al nivel de severidad y recomendaciones prácticas.
+  \item Ofrecer ayuda contextual mediante modales informativos.
+  \item Facilitar la lectura de preguntas mediante síntesis de voz (Text-to-Speech).
+  \item Permitir cambiar la apariencia visual mediante temas personalizables (claro, oscuro, alto contraste).
+\end{itemize}
+
+\textbf{Exclusiones del sistema:}
+
+\begin{itemize}
+  \item No incluye registro ni autenticación de usuarios.
+  \item No almacena datos en servidores remotos ni en bases de datos.
+  \item No ofrece gestión de usuarios ni administración de contenido.
+  \item No se integra con sistemas clínicos ni envía datos a terceros.
+  \item No sustituye el diagnóstico ni la evaluación profesional de salud mental.
+\end{itemize}
+
+\subsection{Personal involucrado}
+\label{sec:personal_involucrado}
+
+El desarrollo de AnxioTest se lleva a cabo bajo la supervisión del \textbf{Ing. Cristian Cola}, docente de la Universidad de las Fuerzas Armadas ESPE, y cuenta con la colaboración de estudiantes de Ingeniería de Software, organizados en tres equipos:
+
+\begin{longtable}{p{0.20\linewidth} p{0.30\linewidth} p{0.45\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Equipo} & \textbf{Integrantes} & \textbf{Responsabilidades} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Equipo} & \textbf{Integrantes} & \textbf{Responsabilidades} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Desarrollo} & Estudiantes de Ingeniería de Software – ESPE & Implementación del frontend (HTML, CSS, JavaScript), lógica de cuestionarios, cálculo de resultados, gestión de almacenamiento local y pruebas unitarias. \\
+\textbf{Pruebas} & Estudiantes colaboradores del proyecto & Diseño y ejecución de casos de prueba, pruebas de usabilidad, pruebas de accesibilidad, validación de requisitos y reporte de incidentes. \\
+\textbf{Documentación} & Estudiantes colaboradores del proyecto & Elaboración y mantenimiento de la ERS, manuales de usuario, actas de reuniones, y gestión de la trazabilidad de requisitos. \\
+\bottomrule
+\caption{Equipos de trabajo del proyecto AnxioTest}
+\label{tab:equipos}
+\end{longtable}
+
+Además, el proyecto cuenta con el apoyo de la \textbf{Misión Social Tumiñahi}, que colabora en la validación de requisitos y en las pruebas de campo con usuarios reales, garantizando que el sistema se ajuste a las necesidades y características de la población objetivo.
+
+\subsection{Definiciones, acrónimos y abreviaturas}
+\label{sec:definiciones}
+
+\subsubsection{Definiciones}
+
+\begin{longtable}{p{0.25\linewidth} p{0.70\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Término} & \textbf{Definición} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Término} & \textbf{Definición} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{AnxioTest} & Plataforma web de evaluación de bienestar emocional, cuyo nombre combina ``anxiety'' (ansiedad) y ``test'' (prueba). \\
+\textbf{Tamizaje} & Proceso de identificación preliminar de posibles trastornos mentales mediante instrumentos estandarizados, con el fin de derivar a evaluación profesional. \\
+\textbf{Síntoma} & Manifestación subjetiva de una alteración en el estado de salud reportada por el paciente, indicativa de un posible trastorno. \\
+\textbf{Severidad} & Grado de intensidad o gravedad de los síntomas reportados, clasificado en categorías desde mínimo hasta grave. \\
+\textbf{Accesibilidad} & Conjunto de características que permiten el uso del sistema por personas con diversas capacidades, incluyendo dificultades visuales, motoras o cognitivas. \\
+\textbf{SPA} & Single Page Application. Arquitectura web que carga una única página HTML y actualiza dinámicamente el contenido sin recarga completa. \\
+\bottomrule
+\caption{Definiciones}
+\label{tab:definiciones}
+\end{longtable}
+
+\subsubsection{Acrónimos}
+
+\begin{longtable}{p{0.20\linewidth} p{0.75\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Acrónimo} & \textbf{Descripción} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Acrónimo} & \textbf{Descripción} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{ERS / SRS} & Especificación de Requisitos de Software. Documento que describe formalmente los requisitos de un sistema software. \\
+\textbf{IEEE} & Institute of Electrical and Electronics Engineers. Organización que desarrolla estándares para la ingeniería de software. \\
+\textbf{BAI} & Beck Anxiety Inventory. Inventario de Ansiedad de Beck, instrumento de 21 ítems para medir síntomas de ansiedad. \\
+\textbf{PHQ-9} & Patient Health Questionnaire -- 9 items. Cuestionario de 9 preguntas para detectar síntomas depresivos. \\
+\textbf{TTS} & Text-to-Speech. Tecnología que convierte texto en voz sintetizada. \\
+\textbf{UI} & User Interface. Interfaz de usuario. \\
+\textbf{UX} & User Experience. Experiencia de usuario. \\
+\textbf{ARIA} & Accessible Rich Internet Applications. Atributos HTML que mejoran la accesibilidad. \\
+\textbf{WCAG} & Web Content Accessibility Guidelines. Pautas de accesibilidad al contenido web del W3C. \\
+\textbf{GDPR} & General Data Protection Regulation. Reglamento General de Protección de Datos. \\
+\textbf{RF} & Requisito Funcional. \\
+\textbf{RNF} & Requisito No Funcional. \\
+\bottomrule
+\caption{Acrónimos}
+\label{tab:acronimos}
+\end{longtable}
+
+\subsubsection{Abreviaturas}
+
+\begin{longtable}{p{0.20\linewidth} p{0.75\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Abreviatura} & \textbf{Descripción} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Abreviatura} & \textbf{Descripción} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{ESPE} & Universidad de las Fuerzas Armadas. \\
+\textbf{W3C} & World Wide Web Consortium. \\
+\textbf{CSS} & Cascading Style Sheets (hojas de estilo en cascada). \\
+\textbf{HTML} & HyperText Markup Language. \\
+\textbf{JS} & JavaScript. \\
+\bottomrule
+\caption{Abreviaturas}
+\label{tab:abreviaturas}
+\end{longtable}
+
+\subsection{Referencias}
+\label{sec:referencias}
+
+\begin{longtable}{p{0.06\linewidth} p{0.32\linewidth} p{0.36\linewidth} p{0.12\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Ref.} & \textbf{Título} & \textbf{Fuente} & \textbf{Fecha} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Ref.} & \textbf{Título} & \textbf{Fuente} & \textbf{Fecha} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+{[1]} & IEEE Std 830-1998 --- Recommended Practice for SRS & \url{https://ieeexplore.ieee.org} & 1998 \\
+{[2]} & Kroenke et al. The PHQ-9: Validity of a Brief Depression Severity Measure & \textit{J. General Internal Medicine}, 16(9), 606--613 & 2001 \\
+{[3]} & Beck et al. An Inventory for Measuring Clinical Anxiety & \textit{J. Consulting and Clinical Psychology}, 56(6), 893--897 & 1988 \\
+{[4]} & WCAG 2.1 --- Web Content Accessibility Guidelines & \url{https://www.w3.org/TR/WCAG21/} & 2018 \\
+{[5]} & Documentación interna del proyecto AnxioTest, ESPE & Repositorio interno del proyecto & 2025 \\
+{[6]} & Lineamientos del Proyecto de Vinculación con la Colectividad, ESPE & Departamento de Vinculación & 2025 \\
+{[7]} & Ley Orgánica de Protección de Datos Personales del Ecuador & \url{https://www.registrosdatospublicos.gob.ec} & 2021 \\
+\bottomrule
+\caption{Referencias}
+\label{tab:referencias}
+\end{longtable}
+
+\subsection{Visión general del documento}
+\label{sec:vision_general}
+
+Este documento de Especificación de Requisitos de Software se organiza siguiendo la estructura recomendada por el estándar IEEE 830:
+
+\begin{itemize}
+  \item \textbf{Capítulo 1 -- Introducción:} Presenta el contexto del proyecto, el propósito, el alcance, el personal involucrado, las definiciones y las referencias.
+  \item \textbf{Capítulo 2 -- Descripción general del producto:} Ofrece una visión global del sistema: perspectiva, funciones, características de los usuarios, restricciones, suposiciones y evolución previsible.
+  \item \textbf{Capítulo 3 -- Requisitos específicos:} Detalla los requisitos funcionales mediante casos de uso (Nivel 0 y Nivel 1), con sus respectivas descripciones y trazabilidad.
+  \item \textbf{Capítulo 4 -- Requisitos no funcionales:} Describe los atributos de calidad del sistema (rendimiento, seguridad, usabilidad, accesibilidad, portabilidad, mantenibilidad, disponibilidad) con métricas cuantitativas.
+  \item \textbf{Capítulo 5 -- Apéndices:} Contiene información complementaria: glosario, formatos de datos, resúmenes de referencia rápida, declaración de cumplimiento normativo e historial de versiones.
+\end{itemize}
+
+Cada requisito (funcional o no funcional) se identifica con un código único (\textbf{RF-XX} o \textbf{RNF-XX}), lo que permite su trazabilidad, verificación y gestión de cambios a lo largo del ciclo de vida del proyecto.

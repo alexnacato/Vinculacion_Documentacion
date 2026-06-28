@@ -1,0 +1,261 @@
+% ============================================================
+% CAPÍTULO 5: APÉNDICES
+% ============================================================
+\section{Apéndices}
+\label{sec:apendices}
+
+Este capítulo contiene información complementaria que apoya la comprensión del sistema AnxioTest, incluyendo un glosario detallado, formatos de datos, referencias adicionales y documentación de soporte.
+
+\subsection{Glosario}
+\label{sec:glosario}
+
+\begin{longtable}{p{0.25\linewidth} p{0.70\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Término} & \textbf{Definición} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Término} & \textbf{Definición} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{AnxioTest}
+  & Nombre de la plataforma web de evaluación de bienestar emocional desarrollada para VincuMedicina 2026. Combina ``anxiety'' (ansiedad) y ``test'' (prueba), reflejando su propósito de evaluación. \\
+\textbf{BAI}
+  & Beck Anxiety Inventory. Inventario de Ansiedad de Beck, instrumento de 21 ítems desarrollado por Aaron Beck y colaboradores (1988) para medir la intensidad de síntomas de ansiedad en la población general. \\
+\textbf{PHQ-9}
+  & Patient Health Questionnaire -- 9 items. Cuestionario de Salud del Paciente de 9 preguntas desarrollado por Kroenke, Spitzer y Williams (2001) para detectar síntomas depresivos en atención primaria. \\
+\textbf{Tamizaje}
+  & Proceso de identificación preliminar de posibles casos de trastornos mentales mediante instrumentos estandarizados, con el fin de derivar a evaluación profesional cuando sea necesario. \\
+\textbf{Síntoma depresivo}
+  & Manifestación de alteración del estado de ánimo, incluyendo tristeza, pérdida de interés, cambios en el apetito, alteraciones del sueño, fatiga, sentimientos de culpa o inutilidad, dificultad de concentración y pensamientos de muerte. \\
+\textbf{Síntoma de ansiedad}
+  & Manifestación de ansiedad, incluyendo síntomas somáticos (palpitaciones, sudoración, temblores) y cognitivos (preocupación excesiva, miedo, sensación de peligro). \\
+\textbf{TTS}
+  & Text-to-Speech. Tecnología que convierte texto en voz sintetizada utilizando la API Web Speech del navegador. \\
+\textbf{ARIA}
+  & Accessible Rich Internet Applications. Conjunto de atributos HTML definidos por el W3C que mejoran la accesibilidad para usuarios de lectores de pantalla y otras tecnologías asistivas. \\
+\textbf{sessionStorage}
+  & Almacenamiento temporal de datos en el navegador durante la sesión actual. Los datos se eliminan al cerrar la pestaña o el navegador. Capacidad típica: 5--10 MB. \\
+\textbf{localStorage}
+  & Almacenamiento persistente de datos en el navegador que permanece entre sesiones del usuario. Capacidad típica: 5--10 MB. \\
+\textbf{SPA}
+  & Single Page Application. Arquitectura web que carga una única página HTML y actualiza dinámicamente el contenido sin recarga completa del navegador. \\
+\textbf{VincuMedicina}
+  & Iniciativa de vinculación con la colectividad de la Universidad de las Fuerzas Armadas ESPE, que promueve proyectos de salud y bienestar comunitario. \\
+\textbf{ESPE}
+  & Universidad de las Fuerzas Armadas, institución de educación superior del Ecuador que promueve la investigación y vinculación con la sociedad. \\
+\textbf{Severidad}
+  & Grado de intensidad o gravedad de los síntomas reportados, clasificado en categorías que van desde mínimo hasta grave según los criterios de cada instrumento. \\
+\bottomrule
+\caption{Glosario de términos}
+\label{tab:glosario}
+\end{longtable}
+
+\subsection{Formato de datos en sessionStorage}
+\label{sec:formato_datos}
+
+El sistema guarda los resultados de evaluación temporales con la clave \texttt{lastTestResult} en formato JSON con la siguiente estructura:
+
+\begin{lstlisting}[caption={Estructura de datos en sessionStorage},
+                   label=lst:sessionstorage]
+{
+  "testId":          "BAI" | "PHQ9",
+  "testName":        "BAI - Ansiedad" | "PHQ-9 - Bienestar",
+  "totalScore":      15,
+  "maxScore":        27,
+  "level":           "Categoria de resultado",
+  "levelLabel":      "Etiqueta amigable para el usuario",
+  "message":         "Mensaje interpretativo personalizado",
+  "recommendations": [
+    "Recomendacion 1",
+    "Recomendacion 2",
+    "Recomendacion 3"
+  ],
+  "answeredCount":   9,
+  "totalQuestions":  9,
+  "timestamp":       "2025-05-15T10:30:00.000Z"
+}
+\end{lstlisting}
+
+\begin{longtable}{p{0.20\linewidth} p{0.20\linewidth} p{0.55\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Tipo} & \textbf{Descripción} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{testId}          & String          & Identificador único de la prueba: ``BAI'' o ``PHQ9''. \\
+\texttt{testName}        & String          & Nombre completo de la prueba para visualización. \\
+\texttt{totalScore}      & Number          & Puntaje total obtenido en el cuestionario. \\
+\texttt{maxScore}        & Number          & Puntaje máximo posible para la prueba. \\
+\texttt{level}           & String          & Categoría de severidad (ej.\ ``Moderado''). \\
+\texttt{levelLabel}      & String          & Etiqueta amigable para mostrar al usuario (ej.\ ``Algunos días pesan más que otros''). \\
+\texttt{message}         & String          & Mensaje interpretativo personalizado. \\
+\texttt{recommendations} & Array of String & Lista de recomendaciones prácticas. \\
+\texttt{answeredCount}   & Number          & Número de preguntas respondidas. \\
+\texttt{totalQuestions}  & Number          & Número total de preguntas del cuestionario. \\
+\texttt{timestamp}       & String          & Fecha y hora de finalización en formato ISO 8601. \\
+\bottomrule
+\caption{Campos de datos en sessionStorage}
+\label{tab:sessionstorage}
+\end{longtable}
+
+\subsection{Documentación de soporte}
+\label{sec:documentacion_soporte}
+
+\subsubsection{Actas de reuniones}
+
+Documento que registra las reuniones de seguimiento del proyecto, incluyendo el acta de la primera, segunda y tercera reunión. En estas actas se detallan los acuerdos, decisiones y avances relacionados con la planificación, revisión de requisitos y validación con los stakeholders del proyecto.
+
+\subsubsection{Justificaciones técnicas}
+
+Conjunto de documentos que sustentan las decisiones técnicas adoptadas durante el desarrollo del sistema:
+\begin{itemize}
+  \item \textbf{Justificación de colores:} Documento que explica la selección de la paleta cromática utilizada en la interfaz, considerando principios de accesibilidad y experiencia de usuario.
+  \item \textbf{Justificación breve de resultados y feedback de doctores:} Resumen ejecutivo de las validaciones realizadas con profesionales de la salud.
+  \item \textbf{Justificación técnica de resultados y feedback de pruebas:} Documento detallado que analiza los resultados obtenidos en las pruebas funcionales y de usabilidad.
+\end{itemize}
+
+\subsubsection{Manuales}
+
+Documento informativo del cuestionario de bienestar emocional, dirigido a los usuarios finales (adultos mayores y comunidad). Este manual explica el propósito de la herramienta, la forma de uso de la plataforma y la interpretación de los resultados obtenidos.
+
+\subsubsection{Manual de pruebas}
+
+Documento en proceso de elaboración que describirá los casos de prueba, los procedimientos de validación y los criterios de aceptación del sistema AnxioTest. Una vez finalizado, permitirá al equipo de pruebas ejecutar y documentar las validaciones funcionales y no funcionales del sistema.
+
+\subsection{Resumen de referencia rápida}
+\label{sec:referencia_rapida}
+
+\subsubsection{PHQ-9 --- Puntos de corte}
+
+\begin{longtable}{p{0.15\linewidth} p{0.35\linewidth} p{0.45\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Puntaje} & \textbf{Nivel clínico estándar} & \textbf{Etiqueta mostrada al paciente} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Puntaje} & \textbf{Nivel clínico estándar} & \textbf{Etiqueta mostrada al paciente} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+0 -- 4   & Mínimo / Sin síntomas  & Buen equilibrio de ánimo \\
+5 -- 9   & Leve                   & Días con altibajos \\
+10 -- 14 & Moderado               & Algunos días pesan más que otros \\
+15 -- 19 & Moderadamente grave    & Un poco de compañía podría hacerle bien \\
+20 -- 27 & Grave                  & Es tiempo de tomar un respiro \\
+\bottomrule
+\caption{PHQ-9 --- Puntos de corte}
+\label{tab:phq9_corte}
+\end{longtable}
+
+\subsubsection{BAI --- Puntos de corte}
+
+\begin{longtable}{p{0.15\linewidth} p{0.35\linewidth} p{0.45\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Puntaje} & \textbf{Nivel clínico estándar} & \textbf{Etiqueta mostrada al paciente} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Puntaje} & \textbf{Nivel clínico estándar} & \textbf{Etiqueta mostrada al paciente} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+0 -- 21  & Ansiedad mínima   & Días de mayor calma \\
+22 -- 35 & Ansiedad moderada & Algunos momentos de inquietud \\
+36 -- 63 & Ansiedad severa   & Días emocionalmente difíciles \\
+\bottomrule
+\caption{BAI --- Puntos de corte}
+\label{tab:bai_corte}
+\end{longtable}
+
+\subsubsection{Recomendaciones por nivel --- PHQ-9}
+
+\begin{longtable}{p{0.12\linewidth} p{0.83\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Nivel} & \textbf{Recomendaciones} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Nivel} & \textbf{Recomendaciones} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+0--4   & Continuar con actividades placenteras, mantener hábitos de cuidado personal, dedicar tiempo a seres queridos, inspirar a otros con el bienestar. \\
+5--9   & Dedicar tiempo a actividades placenteras, compartir sentimientos con alguien cercano, mantener horarios regulares, ofrecer palabras amables. \\
+10--14 & Hablar con familiar o amigo de confianza, visitar al médico o centro de salud, mantener pequeñas rutinas diarias, practicar respiración profunda. \\
+15--19 & Compartir sentimientos con alguien de confianza, buscar orientación profesional, realizar ejercicios de relajación, mantener contacto social. \\
+20--27 & Estar cerca de personas de confianza, buscar apoyo profesional comprensivo, recordar que importa a quienes le rodean, buscar compañía. \\
+\bottomrule
+\caption{Recomendaciones por nivel --- PHQ-9}
+\label{tab:phq9_recomendaciones}
+\end{longtable}
+
+\subsubsection{Recomendaciones por nivel --- BAI}
+
+\begin{longtable}{p{0.12\linewidth} p{0.83\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Nivel} & \textbf{Recomendaciones} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Nivel} & \textbf{Recomendaciones} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+0--21  & Mantener actividades que generen calma, practicar técnicas de respiración, cultivar relaciones de apoyo y mantener hábitos de sueño regulares. \\
+22--35 & Identificar y reducir fuentes de estrés, practicar meditación o relajación muscular progresiva, hablar con alguien de confianza, considerar apoyo psicológico. \\
+36--63 & Buscar apoyo profesional de salud mental a la brevedad, evitar situaciones desencadenantes cuando sea posible, contar con red de apoyo cercana y seguir indicaciones de un profesional. \\
+\bottomrule
+\caption{Recomendaciones por nivel --- BAI}
+\label{tab:bai_recomendaciones}
+\end{longtable}
+
+\subsection{Declaración de cumplimiento normativo}
+\label{sec:cumplimiento_normativo}
+
+El sistema AnxioTest ha sido diseñado para cumplir con las siguientes normativas y estándares:
+
+\begin{itemize}
+  \item \textbf{IEEE 830:} Estándar para especificación de requisitos de software.
+  \item \textbf{WCAG 2.1 Nivel AA:} Pautas de accesibilidad al contenido web.
+  \item \textbf{GDPR:} Reglamento General de Protección de Datos (principios de minimización y transparencia).
+  \item \textbf{Ley Orgánica de Protección de Datos Personales del Ecuador:} Marco legal para la protección de datos personales en el contexto ecuatoriano.
+\end{itemize}
+
+\subsection{Historial de versiones}
+\label{sec:historial_versiones}
+
+\begin{longtable}{p{0.12\linewidth} p{0.18\linewidth} p{0.30\linewidth} p{0.32\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Versión} & \textbf{Fecha} & \textbf{Autor} & \textbf{Descripción} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Versión} & \textbf{Fecha} & \textbf{Autor} & \textbf{Descripción} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1.0 & 15/05/2025 & Alexander Ñacato & Versión final del documento aprobada. \\
+\bottomrule
+\caption{Historial de versiones del documento}
+\label{tab:historial}
+\end{longtable}

@@ -1,0 +1,350 @@
+% ============================================================
+% CAPÍTULO 4: REQUISITOS NO FUNCIONALES (HUMANIZADOS Y REDUCIDOS)
+% ============================================================
+\newpage
+\section{Requisitos no funcionales}
+\label{sec:req_no_funcionales}
+
+Esta sección describe los atributos de calidad que debe cumplir AnxioTest para garantizar que la herramienta sea realmente útil, accesible y confiable para los adultos mayores y comunidades vulnerables a las que va dirigida. Cada requisito se expresa en términos medibles y se ha priorizado según su impacto en la experiencia del usuario.
+
+\subsection{Requisitos de rendimiento}
+\label{sec:rnf_rendimiento}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-01 \\
+\textbf{Nombre} & Carga rápida y sin bloqueos \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el adulto mayor no espere mucho para empezar.
+    \item Que la página se vea completa sin demoras.
+  \end{itemize} \\
+\textbf{Descripción} & La página de inicio debe cargarse en menos de \textbf{3 segundos} en redes móviles o wifi estándar. Las fuentes e iconos se cargarán sin interrumpir la visualización, para que el usuario vea contenido útil de inmediato. La herramienta Lighthouse debe dar una puntuación de rendimiento ≥ 90. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Antes de las pruebas con usuarios reales. \\
+\textbf{Comentarios} & Una carga lenta puede hacer que el usuario desista o se sienta frustrado. \\
+\bottomrule
+\caption{Requisito no funcional RNF-01}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-02 \\
+\textbf{Nombre} & Respuesta ágil a cada toque o clic \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Evitar la sensación de que el sistema "no responde".
+    \item Mantener la atención del usuario sin pausas incómodas.
+  \end{itemize} \\
+\textbf{Descripción} & Cada interacción (seleccionar una opción, pulsar "Siguiente", cambiar de tema) debe tener una respuesta en menos de \textbf{200 milisegundos}. Esto se mide con las herramientas del navegador. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante el desarrollo de los cuestionarios. \\
+\textbf{Comentarios} & Los adultos mayores pueden perder el hilo si el sistema se "congela". \\
+\bottomrule
+\caption{Requisito no funcional RNF-02}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-03 \\
+\textbf{Nombre} & Guardado instantáneo de resultados \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el usuario no note el momento en que se guardan sus respuestas.
+    \item Evitar que la transición a los resultados tenga demoras.
+  \end{itemize} \\
+\textbf{Descripción} & Al finalizar el cuestionario, el sistema guarda el resultado en el navegador en menos de \textbf{50 milisegundos}. Además, al recuperar el tema preferido del usuario, la lectura no debe superar los \textbf{20 ms}. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante la implementación de la página de resultados. \\
+\textbf{Comentarios} & Un retraso aquí podría hacer que el usuario piense que no funcionó. \\
+\bottomrule
+\caption{Requisito no funcional RNF-03}
+\end{longtable}
+
+\subsection{Requisitos de seguridad y privacidad}
+\label{sec:rnf_seguridad}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-04 \\
+\textbf{Nombre} & Privacidad total de los datos del usuario \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el usuario se sienta tranquilo al responder preguntas personales.
+    \item Cumplir con las leyes de protección de datos.
+  \end{itemize} \\
+\textbf{Descripción} & El sistema nunca envía información a internet ni la guarda en servidores. Solo utiliza el almacenamiento temporal del navegador para mostrar los resultados inmediatos y recordar el tema de colores preferido. Nada de lo que el usuario responda queda registrado fuera de su propio dispositivo. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Desde la primera versión. \\
+\textbf{Comentarios} & Esta es una de las características más valoradas por los adultos mayores, que suelen ser recelosos con sus datos. \\
+\bottomrule
+\caption{Requisito no funcional RNF-04}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-05 \\
+\textbf{Nombre} & Advertencia clara sobre el alcance de la herramienta \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Evitar que el usuario crea que esto reemplaza a un médico.
+    \item Que entienda que es solo una orientación.
+  \end{itemize} \\
+\textbf{Descripción} & En la página de inicio y en los resultados debe aparecer un mensaje visible y con letra grande (≥ 16 px) que diga: "Esta evaluación es orientativa, no sustituye una consulta profesional". El mensaje debe ser fácil de leer incluso en pantallas pequeñas. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & En el primer diseño de la interfaz. \\
+\textbf{Comentarios} & Esto protege al usuario y también a los responsables del proyecto. \\
+\bottomrule
+\caption{Requisito no funcional RNF-05}
+\end{longtable}
+
+\subsection{Requisitos de usabilidad y accesibilidad}
+\label{sec:rnf_usabilidad_accesibilidad}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-06 \\
+\textbf{Nombre} & Navegación clara y sin pérdidas \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el usuario siempre sepa dónde está y qué debe hacer.
+    \item Que no se sienta perdido o abrumado.
+  \end{itemize} \\
+\textbf{Descripción} & Los botones deben tener nombres muy claros ("Comenzar", "Siguiente", "Ver resultados", "Volver al inicio"). El flujo de páginas debe ser lineal: inicio → elegir prueba → responder preguntas → ver resultados. En pruebas con 10 adultos mayores, al menos 9 de cada 10 deben completar la evaluación sin ayuda. El tiempo promedio para terminar el cuestionario no debe superar los 5 minutos. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Antes de las pruebas de usabilidad. \\
+\textbf{Comentarios} & La sencillez es clave para la población objetivo. \\
+\bottomrule
+\caption{Requisito no funcional RNF-06}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-07 \\
+\textbf{Nombre} & Mensajes de error amables y acciones claras \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Evitar que el usuario se sienta culpable o confundido ante un error.
+    \item Ofrecer siempre una salida o solución.
+  \end{itemize} \\
+\textbf{Descripción} & Si ocurre algún problema (por ejemplo, no se pueden recuperar los resultados), el sistema mostrará un mensaje simple como "No pudimos encontrar tus respuestas, pero puedes volver a intentarlo". Los diálogos de confirmación (como al cancelar) deben tener botones con etiquetas claras: "Sí, salir" y "Continuar". La tasa de errores del usuario (equivocarse al pulsar) debe ser menor del 5\%. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante el desarrollo de la navegación. \\
+\textbf{Comentarios} & La empatía en los mensajes reduce la ansiedad del usuario. \\
+\bottomrule
+\caption{Requisito no funcional RNF-07}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-08 \\
+\textbf{Nombre} & Contraste y legibilidad para baja visión \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que los textos se vean nítidos incluso con problemas de vista.
+    \item Ofrecer un tema de alto contraste para quienes lo necesiten.
+  \end{itemize} \\
+\textbf{Descripción} & El contraste entre el texto y el fondo debe ser al menos 4.5:1 (lo exigen las pautas WCAG 2.1 nivel AA). Además, se ofrecerá un tema visual con colores de alto contraste. Ninguna página debe tener problemas de contraste según herramientas automáticas como WebAIM. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante el diseño de temas visuales. \\
+\textbf{Comentarios} & Esto es fundamental para adultos mayores con cataratas o degeneración macular. \\
+\bottomrule
+\caption{Requisito no funcional RNF-08}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-09 \\
+\textbf{Nombre} & Uso con teclado, lectores de pantalla y zoom \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que personas con movilidad reducida o ceguera puedan usarlo.
+    \item Que el zoom del navegador no rompa el diseño.
+  \end{itemize} \\
+\textbf{Descripción} & Todo el sistema debe funcionar solo con teclado (Tabulador, Enter, Espacio), con indicadores de foco visibles. Debe ser compatible con lectores de pantalla (NVDA, VoiceOver) usando roles ARIA. Además, al hacer zoom hasta el 200\%, los elementos no deben superponerse ni perderse. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante el desarrollo de la interfaz. \\
+\textbf{Comentarios} & Esto garantiza la inclusión de personas con discapacidades diversas. \\
+\bottomrule
+\caption{Requisito no funcional RNF-09}
+\end{longtable}
+
+\subsection{Requisitos de portabilidad y disponibilidad}
+\label{sec:rnf_portabilidad_disponibilidad}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-10 \\
+\textbf{Nombre} & Funciona en cualquier dispositivo y navegador \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el usuario pueda usar su propio teléfono o computadora.
+    \item Que no haya diferencias entre navegadores.
+  \end{itemize} \\
+\textbf{Descripción} & El sistema debe verse y comportarse igual en las versiones actuales de Chrome, Firefox, Edge y Safari, tanto en Windows, macOS, Linux, como en teléfonos y tablets (Android e iOS). La pantalla debe adaptarse desde 320 px de ancho (móviles) hasta monitores grandes. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Antes de las pruebas de compatibilidad. \\
+\textbf{Comentarios} & Muchos adultos mayores usan dispositivos antiguos o prestados. \\
+\bottomrule
+\caption{Requisito no funcional RNF-10}
+\end{longtable}
+
+\begin{longtable}{p{0.15\linewidth} p{0.80\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Campo} & \textbf{Detalle} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Id} & RNF-11 \\
+\textbf{Nombre} & Recuperación amigable ante imprevistos \\
+\textbf{Versión} & 1.0 \\
+\textbf{Fecha} & Mayo 2025 \\
+\textbf{Solicitante} & Equipo de proyecto AnxioTest – Misión Social Tumiñahi \\
+\textbf{Objetivos asociados} & 
+  \begin{itemize}
+    \item Que el usuario no se quede bloqueado si algo falla.
+    \item Que pueda reiniciar sin frustración.
+  \end{itemize} \\
+\textbf{Descripción} & Si ocurre un error (por ejemplo, el navegador no permite guardar datos o la voz no funciona), el sistema mostrará un mensaje claro y ofrecerá opciones como "Reintentar" o "Volver al inicio". El tiempo para reiniciar la evaluación desde cero debe ser menor a 5 segundos. Nunca se perderán datos sin avisar al usuario. \\
+\textbf{Importancia} & Crítico \\
+\textbf{¿Cuándo debe estar listo?} & Durante la implementación de la lógica de navegación. \\
+\textbf{Comentarios} & Esto da tranquilidad al usuario y al personal de apoyo. \\
+\bottomrule
+\caption{Requisito no funcional RNF-11}
+\end{longtable}

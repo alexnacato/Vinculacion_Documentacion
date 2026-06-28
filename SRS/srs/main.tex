@@ -1,0 +1,308 @@
+% ============================================================
+%  AnxioTest — Especificación de Requisitos de Software
+%  VincuMedicina 2026 · Universidad de las Fuerzas Armadas ESPE
+%  Autor: Jonathan Jaguaco · Equipo de Documentación
+%  Versión 1.0 · Mayo 2025
+% ============================================================
+
+\documentclass[12pt, a4paper]{article}
+
+%% ── Codificación y lenguaje ─────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{subcaption}
+
+%% ── Tipografía ──────────────────────────────────────────────
+\usepackage{lmodern}
+\usepackage{mathpazo}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage{setspace}
+\setstretch{1.15}
+
+%% ── Geometría de página ─────────────────────────────────────
+\usepackage[
+  left=2.5cm, right=2.5cm,
+  top=2.8cm,  bottom=2.5cm,
+  headheight=15pt
+]{geometry}
+
+%% ── Gráficos ────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+
+%% ── Color ───────────────────────────────────────────────────
+\usepackage[dvipsnames, table]{xcolor}
+\definecolor{espeblue}{RGB}{0, 60, 120}
+\definecolor{espelightblue}{RGB}{210, 228, 248}
+\definecolor{darkgray}{RGB}{50, 50, 50}
+\definecolor{midgray}{RGB}{130, 130, 130}
+\definecolor{warnyellow}{RGB}{255, 243, 205}
+\definecolor{warnborder}{RGB}{180, 110, 0}
+\definecolor{notebg}{RGB}{235, 245, 255}
+\definecolor{tableheader}{RGB}{0, 60, 120}
+\definecolor{reqbg}{RGB}{248, 250, 255}
+
+%% ── Tablas ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{colortbl}
+\renewcommand{\arraystretch}{1.35}
+
+%% ── Listas ──────────────────────────────────────────────────
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=3pt, leftmargin=*}
+
+%% ── Formato de secciones ────────────────────────────────────
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\Large\bfseries\color{espeblue}}
+  {\color{espeblue}\thesection}{0.8em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{espeblue}}
+  {\color{espeblue}\thesubsection}{0.8em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{darkgray}}
+  {\color{darkgray}\thesubsubsection}{0.8em}{}
+
+\titleformat{\paragraph}[runin]
+  {\normalsize\bfseries\color{darkgray}}
+  {}{0em}{}[.\quad]
+
+\titlespacing*{\section}      {0pt}{2.2ex plus 0.6ex}{0.9ex}
+\titlespacing*{\subsection}   {0pt}{1.5ex plus 0.4ex}{0.5ex}
+\titlespacing*{\subsubsection}{0pt}{1.1ex plus 0.3ex}{0.3ex}
+
+%% ── Cabecera y pie de página ────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\makeatletter
+\renewcommand{\headrule}{%
+  {\color{espeblue}\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+   \hrule\@height\headrulewidth\@width\headwidth\vskip-\headrulewidth}}
+\renewcommand{\footrule}{%
+  {\color{midgray}\hrule\@height\footrulewidth\@width\headwidth\vskip-\footrulewidth}}
+\makeatother
+
+\fancyhead[L]{%
+  \small\color{espeblue}%
+  \textbf{AnxioTest}\;\textcolor{midgray}{$|$}\;%
+  \textit{Especificación de Requisitos de Software}%
+}
+\fancyhead[R]{%
+  \small\color{espeblue}%
+  Rev.\,1.0\;\textcolor{midgray}{$|$}\;Pág.\,\thepage%
+}
+\fancyfoot[C]{%
+  \footnotesize\color{midgray}%
+  Universidad de las Fuerzas Armadas ESPE\;$\cdot$\;VincuMedicina 2026%
+}
+
+%% ── Código fuente ───────────────────────────────────────────
+\usepackage{listings}
+\lstset{
+  basicstyle        = \ttfamily\small,
+  breaklines        = true,
+  frame             = single,
+  framerule         = 0.5pt,
+  rulecolor         = \color{midgray},
+  backgroundcolor   = \color{notebg},
+  xleftmargin       = 8pt,
+  xrightmargin      = 8pt,
+  numbers           = left,
+  numberstyle       = \tiny\color{midgray},
+  numbersep         = 6pt,
+  keepspaces        = true,
+  showstringspaces  = false,
+  language          = {},
+}
+
+%% ── Leyendas ────────────────────────────────────────────────
+\usepackage{caption}
+\captionsetup{
+  font      = small,
+  labelfont = {bf, color=darkgray},
+  labelsep  = period,
+}
+
+%% ── Cajas informativas ──────────────────────────────────────
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+\newtcolorbox{notebox}{
+  colback   = notebg,
+  colframe  = espeblue,
+  coltitle  = white,
+  fonttitle = \bfseries\small,
+  title     = Nota,
+  top=5pt, bottom=5pt, left=7pt, right=7pt,
+  boxrule   = 0.7pt,
+  breakable,
+}
+
+\newtcolorbox{importantbox}{
+  colback   = warnyellow,
+  colframe  = warnborder,
+  coltitle  = white,
+  fonttitle = \bfseries\small,
+  title     = Importante,
+  top=5pt, bottom=5pt, left=7pt, right=7pt,
+  boxrule   = 0.7pt,
+  breakable,
+}
+
+%% Caja para requisitos (RF / RNF)
+\newtcolorbox{reqbox}{
+  colback   = reqbg,
+  colframe  = espeblue,
+  top       = 6pt,
+  bottom    = 6pt,
+  left      = 9pt,
+  right     = 9pt,
+  boxrule   = 0.55pt,
+  arc       = 2pt,
+  breakable,
+}
+
+%% ── Espacio entre párrafos ──────────────────────────────────
+\usepackage[skip=5pt]{parskip}
+
+%% ── Hipervínculos (siempre el último paquete) ───────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks  = true,
+  linkcolor   = espeblue,
+  urlcolor    = espeblue,
+  citecolor   = espeblue,
+  pdfauthor   = {Jonathan Jaguaco - Equipo de Documentacion},
+  pdftitle    = {AnxioTest - Especificacion de Requisitos de Software},
+  pdfsubject  = {SRS VincuMedicina 2026 - ESPE},
+  pdflang     = {es},
+}
+
+\date{}
+\title{}
+\author{}
+
+\begin{document}
+
+% ── PORTADA ──────────────────────────────────────────────────
+% ── PORTADA ──────────────────────────────────────────────────
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+
+% === LOGOS (superior izquierda y derecha) ===
+\begin{minipage}{0.3\textwidth}
+  \raggedright
+  % === LOGO ESPE ===
+  % Cambia la ruta y el nombre del archivo por el tuyo
+  \includegraphics[width=0.9\linewidth]{dcco.jpg}
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\textwidth}
+  \raggedleft
+  % === LOGO MISIÓN SOCIAL TUMIÑAHUI ===
+  % Cambia la ruta y el nombre del archivo por el tuyo
+  \includegraphics[width=0.9\linewidth]{mision.jpg}
+\end{minipage}
+
+\vspace{0.5cm}
+
+% === LÍNEA DECORATIVA ===
+{\color{espeblue}\rule{\textwidth}{1.2pt}}\\[2pt]
+{\color{espeblue}\rule{\textwidth}{0.4pt}}
+\vspace{1.0cm}
+
+% === TÍTULO PRINCIPAL ===
+{\Huge\bfseries\color{espeblue} AnxioTest}\\[0.4cm]
+{\LARGE\bfseries\color{darkgray} Especificación de Requisitos de Software}\\[0.2cm]
+{\large\color{midgray}\itshape Plataforma Web de Evaluación de Bienestar Emocional}
+
+\vspace{0.8cm}
+{\color{espeblue}\rule{\textwidth}{0.4pt}}\\[2pt]
+{\color{espeblue}\rule{\textwidth}{1.2pt}}
+
+\vspace{1.2cm}
+
+% === DATOS DEL PROYECTO ===
+\begin{tabular}{@{}l l@{}}
+  \textbf{\color{espeblue}Proyecto:}    & AnxioTest --- Evaluación de Bienestar Emocional \\[5pt]
+  \textbf{\color{espeblue}Revisión:}    & 1.0 \\[5pt]
+  \textbf{\color{espeblue}Fecha:}       & Mayo 2025 \\[5pt]
+  \textbf{\color{espeblue}Iniciativa:}  & Proyecto de Vinculación \\[5pt]
+  \textbf{\color{espeblue}Institución:} & Universidad de las Fuerzas Armadas ESPE \\[5pt]
+  \textbf{\color{espeblue}Con el apoyo de:} & Misión Social Tumiñahui \\
+\end{tabular}
+
+\vfill
+
+% === PIE DE PÁGINA ===
+{\color{espeblue}\rule{\textwidth}{0.4pt}}\\[0.25cm]
+\footnotesize\color{midgray}
+Universidad de las Fuerzas Armadas ESPE
+$\cdot$ VincuMedicina 2026 $\cdot$ Quito, Ecuador
+
+\end{center}
+\end{titlepage}
+
+% ── FICHA DEL DOCUMENTO ───────────────────────────────────────
+\newpage
+\thispagestyle{fancy}
+\section*{Ficha del documento}
+\addcontentsline{toc}{section}{Ficha del documento}
+
+\begin{longtable}{p{0.20\linewidth} p{0.18\linewidth} p{0.30\linewidth} p{0.24\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Fecha} & \textbf{Revisión} & \textbf{Autores} & \textbf{Verificado} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Fecha} & \textbf{Revisión} & \textbf{Autores} & \textbf{Verificado} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+15/05/2025 & Versión 1.0 &
+Alexander Ñacato \newline Equipo de Documentación &
+Ing. Cristian Cola \newline Docente Tutor - Proyecto de Vinculación \\
+\bottomrule
+\caption{Ficha del documento}
+\label{tab:ficha_documento}
+\end{longtable}
+% ── TABLA DE CONTENIDOS ──────────────────────────────────────
+\newpage
+\thispagestyle{fancy}
+{\hypersetup{linkcolor=darkgray}
+\tableofcontents}
+
+% ============================================================
+% CAPÍTULOS
+% ============================================================
+\newpage
+\input{srs/chapters/1_Introduccion}
+
+\newpage
+\input{srs/chapters/2_Descripcion_General}
+
+\newpage
+\input{srs/chapters/3_Requisitos_Especificos}
+
+\newpage
+\input{srs/chapters/4_Requisitos_No_Funcionales}
+
+\newpage
+\input{srs/chapters/5_Apendices}
+
+\end{document}

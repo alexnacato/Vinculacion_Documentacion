@@ -1,0 +1,165 @@
+% ============================================================
+% CAPÍTULO 2: DESCRIPCIÓN GENERAL DEL PRODUCTO
+% ============================================================
+\section{Descripción general del producto}
+\label{sec:descripcion_general}
+
+AnxioTest es un producto de software independiente, diseñado como una aplicación web estática orientada a la evaluación inicial del bienestar emocional. Se ejecuta directamente en el navegador del usuario y no requiere un servidor de aplicación para las funciones principales, lo que garantiza la privacidad de los datos y la facilidad de despliegue.
+
+El sistema se presenta como una herramienta de apoyo a la salud mental en el marco del \textbf{Proyecto de Vinculación con la Colectividad} de la Universidad de las Fuerzas Armadas ESPE, dirigido a la \textbf{Misión Social Tumiñahi}. Este proyecto permite a los beneficiarios de la misión social —principalmente adultos mayores y comunidades vulnerables— generar una autoevaluación rápida de su bienestar emocional utilizando cuestionarios estructurados y validados científicamente (PHQ-9 y BAI).
+
+\subsection{Perspectiva del producto}
+\label{sec:perspectiva_producto}
+
+AnxioTest es un producto de software independiente desarrollado específicamente para facilitar el acceso a herramientas de tamizaje psicológico en contextos de atención social. No forma parte de un sistema mayor existente, sino que constituye una solución integral autónoma diseñada para cubrir las necesidades de evaluación preliminar de bienestar emocional de los usuarios de la Misión Social Tumiñahi y, de forma extensiva, de la comunidad en general.
+
+El sistema operará como una plataforma web centralizada, accesible desde cualquier dispositivo con navegador moderno, convirtiéndose en el punto de entrada para la autoevaluación de los participantes del proyecto.
+
+\subsubsection{Relaciones con sistemas y componentes externos}
+
+AnxioTest se relaciona con componentes externos de la siguiente manera:
+
+\begin{itemize}
+  \item \textbf{Servicios de fuentes tipográficas:} El sistema carga fuentes desde Google Fonts para garantizar una presentación visual consistente y legible.
+  \item \textbf{Recursos de iconos:} Utiliza iconos de bibliotecas externas para mejorar la experiencia visual y la usabilidad.
+  \item \textbf{Almacenamiento del navegador:} Emplea \texttt{sessionStorage} para transferir resultados de evaluación entre páginas y \texttt{localStorage} para persistir preferencias de usuario como el tema visual.
+  \item \textbf{Navegadores modernos:} El sistema se ejecuta en navegadores web (Chrome, Firefox, Edge, Safari) que proporcionan el entorno de ejecución para JavaScript y la interfaz de usuario.
+\end{itemize}
+
+AnxioTest no requiere integración con bases de datos externas, servicios de backend o sistemas clínicos, lo que simplifica su despliegue y mantenimiento.
+
+\subsubsection{Arquitectura del sistema}
+
+El sistema sigue una arquitectura de aplicación web de una sola página (SPA) con múltiples vistas, implementada mediante HTML5, CSS3 y JavaScript vanilla. La estructura se organiza en las siguientes capas:
+
+\begin{itemize}
+  \item \textbf{Capa de presentación:} Archivos HTML que definen la estructura de las páginas y componentes visuales.
+  \item \textbf{Capa de estilo:} Hojas de estilo CSS que controlan la apariencia visual, organizadas en archivos separados por responsabilidad (base, layout, temas, componentes).
+  \item \textbf{Capa de lógica:} Archivos JavaScript que gestionan la navegación, el estado de los cuestionarios, el cálculo de resultados y la interacción con el almacenamiento local.
+\end{itemize}
+
+Esta arquitectura garantiza una clara separación de responsabilidades, facilitando el mantenimiento, las pruebas y la evolución futura del sistema.
+
+\subsection{Funciones del producto}
+\label{sec:funciones_producto}
+
+Las funciones principales del producto son:
+
+\begin{itemize}
+  \item \textbf{Navegación principal:} Mostrar páginas de inicio, selección de pruebas, cuestionario y resultados con navegación fluida.
+  \item \textbf{Selección de cuestionario:} Permitir al usuario elegir entre PHQ-9 y BAI desde la página de selección.
+  \item \textbf{Ejecución del cuestionario:} Presentar preguntas secuenciales con cuatro opciones de respuesta cada una, mostrando el progreso.
+  \item \textbf{Cálculo de resultados:} Sumar los valores de las respuestas seleccionadas y clasificar según criterios establecidos.
+  \item \textbf{Interpretación de resultados:} Mostrar mensajes adaptados al nivel de severidad con recomendaciones prácticas.
+  \item \textbf{Ayuda contextual:} Proporcionar información adicional mediante modales para cada pregunta.
+  \item \textbf{Lectura por voz:} Ofrecer funcionalidad de síntesis de voz (TTS) para facilitar la comprensión.
+  \item \textbf{Personalización visual:} Permitir cambiar el tema visual y guardar la preferencia del usuario.
+  \item \textbf{Gestión de datos temporales:} Almacenar resultados en \texttt{sessionStorage} para su transferencia entre páginas.
+  \item \textbf{Accesibilidad:} Implementar atributos ARIA, navegación por teclado y contraste adecuado para usuarios con discapacidades.
+\end{itemize}
+
+\subsection{Características de los usuarios}
+\label{sec:caracteristicas_usuarios}
+
+AnxioTest está diseñado para ser utilizado por diversos perfiles de usuarios dentro del contexto del Proyecto de Vinculación:
+
+\begin{longtable}{p{0.20\linewidth} p{0.35\linewidth} p{0.40\linewidth}}
+\toprule
+\rowcolor{tableheader!20}
+\textbf{Tipo de usuario} & \textbf{Formación / Habilidades} & \textbf{Actividades} \\
+\midrule
+\endfirsthead
+\rowcolor{tableheader!20}
+\textbf{Tipo de usuario} & \textbf{Formación / Habilidades} & \textbf{Actividades} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{Beneficiarios de la misión social}
+  & Adultos mayores y comunidad vulnerable. Conocimientos básicos de navegación web o asistencia de personal de apoyo.
+  & Realizar autoevaluaciones de bienestar emocional. Comprender los resultados con apoyo visual y auditivo (TTS). Seguir recomendaciones de autocuidado. \\
+\textbf{Personal de apoyo}
+  & Trabajadores sociales y voluntarios de Tumiñahi. Conocimientos de salud comunitaria y manejo básico de tecnología.
+  & Acompañar a los beneficiarios durante la evaluación. Interpretar los resultados. Derivar a profesionales cuando sea necesario. \\
+\textbf{Equipo académico}
+  & Docentes y estudiantes de la ESPE. Conocimientos de salud mental y tecnología.
+  & Validar el funcionamiento del sistema. Analizar resultados agregados para mejorar la intervención social. \\
+\bottomrule
+\caption{Características de los usuarios}
+\label{tab:usuarios}
+\end{longtable}
+
+Se espera que los usuarios utilicen el sistema con dispositivos de escritorio, tablet o móvil, y valoren una experiencia accesible, clara y sin distracciones.
+
+\subsection{Restricciones}
+\label{sec:restricciones}
+
+El diseño, desarrollo y operación del sistema AnxioTest se encuentra condicionado por las siguientes restricciones:
+
+\subsubsection{Restricciones tecnológicas}
+
+\begin{itemize}
+  \item El sistema deberá implementarse utilizando exclusivamente \textbf{HTML5, CSS3 y JavaScript vanilla}, sin frameworks externos como React, Vue o Angular.
+  \item La estructura del sistema estará basada en \textbf{archivos estáticos} que se sirven directamente desde un servidor web sin procesamiento del lado del servidor.
+  \item El sistema dependerá únicamente de recursos externos para fuentes tipográficas (Google Fonts) e iconos.
+  \item El sistema deberá ser \textbf{compatible con navegadores modernos}: Chrome (v90+), Firefox (v88+), Edge (v90+) y Safari (v14+).
+  \item El sistema deberá cumplir con las \textbf{prácticas de accesibilidad web} establecidas por las WCAG 2.1 en nivel AA.
+\end{itemize}
+
+\subsubsection{Restricciones de seguridad y privacidad}
+
+\begin{itemize}
+  \item El sistema \textbf{no debe almacenar información sensible del usuario} en servidores o bases de datos externas.
+  \item Los datos de evaluación se limitan a \texttt{sessionStorage} para resultados temporales y \texttt{localStorage} para preferencias de tema.
+  \item El sistema debe mostrar una \textbf{advertencia clara} de que la herramienta no reemplaza una evaluación profesional de salud mental.
+\end{itemize}
+
+\subsubsection{Restricciones organizacionales}
+
+\begin{itemize}
+  \item El proyecto se desarrolla en un contexto académico, con \textbf{limitaciones de tiempo} definidas por el periodo lectivo.
+  \item Los recursos humanos están organizados en los equipos de desarrollo, pruebas y documentación, bajo la tutoría del Ing. Cristian Cola.
+  \item El sistema debe estar alineado con los objetivos del Proyecto de Vinculación y las necesidades de la Misión Social Tumiñahi.
+\end{itemize}
+
+\subsection{Suposiciones y dependencias}
+\label{sec:suposiciones_dependencias}
+
+El desarrollo de AnxioTest se basa en las siguientes suposiciones y dependencias, cuyo cambio podría afectar los requisitos definidos en esta ERS:
+
+\subsubsection{Suposiciones}
+
+\begin{itemize}
+  \item Se asume que el usuario utiliza un \textbf{navegador moderno} con JavaScript habilitado y soporte para las características web requeridas.
+  \item Se asume que el dispositivo del usuario \textbf{puede cargar recursos externos} como fuentes tipográficas e iconos desde Internet.
+  \item Se asume que el usuario \textbf{comprende} que la evaluación es de carácter orientativo y no constituye un diagnóstico médico.
+  \item Se asume que el usuario tiene \textbf{capacidad para leer y comprender} el contenido en español, o accede a la funcionalidad TTS.
+  \item Se asume que el usuario \textbf{consiente voluntariamente} la realización de la evaluación y el uso de sus datos de forma local.
+\end{itemize}
+
+\subsubsection{Dependencias}
+
+\begin{itemize}
+  \item \textbf{Google Fonts:} El sistema depende de la disponibilidad de las fuentes tipográficas alojadas en Google Fonts para su presentación visual.
+  \item \textbf{Recursos de iconos:} El sistema depende de bibliotecas externas de iconos para mejorar la experiencia de usuario.
+  \item \textbf{Almacenamiento del navegador:} El sistema depende de la disponibilidad de \texttt{sessionStorage} y \texttt{localStorage} para gestionar datos temporales y preferencias.
+  \item \textbf{Soporte TTS:} El sistema depende de la API de síntesis de voz del navegador para la funcionalidad de lectura en voz alta.
+\end{itemize}
+
+\subsection{Evolución previsible del sistema}
+\label{sec:evolucion}
+
+El sistema AnxioTest ha sido concebido como una solución base con posibilidad de evolución en versiones futuras, de acuerdo con las necesidades del proyecto, la retroalimentación de los usuarios y la disponibilidad de recursos.
+
+Entre las mejoras futuras se contemplan:
+
+\begin{itemize}
+  \item \textbf{Soporte multiidioma:} Permitir la selección de idioma (inglés, español, etc.) para ampliar el alcance del sistema.
+  \item \textbf{Integración con backend:} Desarrollar un servidor para almacenamiento histórico de resultados y generación de informes.
+  \item \textbf{Autenticación y perfiles:} Implementar registro de usuarios y gestión de perfiles para seguimiento personalizado.
+  \item \textbf{Nuevos cuestionarios:} Incorporar instrumentos adicionales para evaluar otros aspectos de la salud mental.
+  \item \textbf{Generación de informes:} Permitir exportar resultados en formato PDF para compartir con profesionales de salud.
+  \item \textbf{Análisis de datos agregados:} Implementar paneles de control para visualizar tendencias y estadísticas de uso.
+\end{itemize}
+
+Estas evoluciones no forman parte del alcance actual del proyecto y serán evaluadas para su implementación en etapas posteriores.
